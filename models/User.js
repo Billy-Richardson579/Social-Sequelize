@@ -1,7 +1,14 @@
-const {Sequelize, db} = require('./db/connection');
-let User = db.define("user",{
-    username: Sequelize.STRING,
-    email: Sequelize.STRING
-})
+const {db,DataTypes,Model} = require('../db/connection.js');
+
+
+class User extends Model {}
+
+User.init(
+  {
+    username: DataTypes.STRING,
+    email: DataTypes.STRING,
+  },
+  { sequelize: db }
+)
 
 module.exports = User;

@@ -1,8 +1,14 @@
-const {Sequelize , db} = require('./db/connection')
-let Comment = db.define("comment", {
-    body: Sequelize.STRING,
-    createdAt: Sequelize.STRING
-})
+const {DataTypes,Model , db} = require('../db/connection.js')
+
+class Comment extends Model {}
+
+Comment.init(
+  {
+    body: DataTypes.STRING,
+    createdAt: DataTypes.STRING,
+  },
+  { sequelize: db }
+)
 
 
 module.exports = Comment;
